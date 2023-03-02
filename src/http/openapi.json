@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Trading"
+  },
+  "paths": {
+    "/gold/maxprofit": {
+      "get": {
+        "tags": [
+          "gold"
+        ],
+        "description": "Returns the best buy/sell point in gold during the last 5 years to achieve maximum profit with the investment of $135, 000 USD",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "profit": {
+                      "buyDate": "2018-09-28",
+                      "buyPrice": 0,
+                      "saleDate": "2022-03-09",
+                      "salePrice": 0,
+                      "profitPercent": 0,
+                      "profit": 0
+                    }
+                  }
+                  }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_code",
+                    "message"
+                  ],
+                  "properties": {
+                    "error_code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
